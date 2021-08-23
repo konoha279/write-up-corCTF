@@ -3,6 +3,7 @@
 - File 64 bit, static và không stripped nên dễ cho việc debug hơn.
 
 ```c
+dinhvu@LAPTOP-63U3K24D:/mnt/c/Users/ADMIN/Desktop/corCTF/Cshell$ file Cshell
 Cshell: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=fa44f005a56ad5119764902311a39bbf09cbca23, for GNU/Linux 3.2.0, not stripped
 ```
 
