@@ -117,6 +117,6 @@ int main()
 
 ## AliceInCeptionland
 Một chall game khá thú vị.
-![alt text](/Resources/img1.png)
+![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img1.png)
 
 Vì file viết bằng `.NET` nên sử dụng dnspy để đọc.
