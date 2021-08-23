@@ -298,7 +298,40 @@ int main(){
         0x518980:       0x0000000000000000      0x0000000000020681
         ```
 
-- Ở hàm setup() chương trình yêu cầu ta nhập username, password sau đó password sẽ được mã hóa với key '1337', ngoài ra còn yêu cầu ta nhập vào 1 size rồi malloc 1 chunk với size trên sau đó cho ta nhập input với len là 201 vậy nếu ta malloc 1 size nhỏ hơn 201 thì ở đây ta có thể overflow ⇒ heap overflow.
+- Ở hàm setup() chương trình yêu cầu ta nhập username, password sau đó password sẽ được mã hóa với key '1337', ngoài ra còn yêu cầu ta nhập vào 1 size rồi malloc 1 chunk với size trên sau đó cho ta nhập input với len là 201 vậy malloc với size bất kì thì vẫn luôn nhập được 201 bytes => heap overflow.
+- Ví dụ mình malloc với size 100:
+    - Trước khi overflow:
+
+        ```c
+        0x518980:       0x0000000000000000      0x0000000000000081
+        0x518990:       0x0000000000000000      0x0000000000000000
+        0x5189a0:       0x0000000000000000      0x0000000000000000
+        0x5189b0:       0x0000000000000000      0x0000000000000000
+        0x5189c0:       0x0000000000000000      0x0000000000000000
+        0x5189d0:       0x0000000000000000      0x0000000000000000
+        0x5189e0:       0x0000000000000000      0x0000000000000000
+        0x5189f0:       0x0000000000000000      0x0000000000000000
+        0x518a00:       0x0000000000000000      0x0000000000020601 <- top chunk
+        ```
+
+    - Sau khi overflow:
+
+        ```c
+        0x518980:       0x0000000000000000      0x0000000000000081
+        0x518990:       0x0000000000000000      0x6161616161616161
+        0x5189a0:       0x6161616161616161      0x6161616161616161
+        0x5189b0:       0x6161616161616161      0x6161616161616161
+        0x5189c0:       0x6161616161616161      0x6161616161616161
+        0x5189d0:       0x6161616161616161      0x6161616161616161
+        0x5189e0:       0x6161616161616161      0x6161616161616161
+        0x5189f0:       0x6161616161616161      0x6161616161616161
+        0x518a00:       0x6161616161616161      0x6161616161616161 <- top chunk
+        0x518a10:       0x6161616161616161      0x6161616161616161
+        0x518a20:       0x6161616161616161      0x6161616161616161
+        0x518a30:       0x6161616161616161      0x6161616161616161
+        0x518a40:       0x6161616161616161      0x6161616161616161
+        0x518a50:       0x6161616161616161      0x6161616161616161
+        ```
 - Ta có thể dùng bug trên để overwrite data vùng nhớ của chunk user thay đổi username và password của user hoặt root.
 - Ở menu sẽ có 5 chức năng chính:
 
