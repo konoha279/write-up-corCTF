@@ -1,6 +1,4 @@
-# REV
-
-## BabyREV
+# BabyREV
 Tại hàm main, có thể dễ dàng thấy được chương trình như thế nào.
 ```c
 v12 = __readfsqword(0x28u);
@@ -115,7 +113,7 @@ int main()
 ### => Flag: `corctf{see?_rEv_aint_so_bad}`
 
 
-## AliceInCeptionland
+# AliceInCeptionland
 Một chall game khá thú vị.
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img1.png)
 
@@ -287,7 +285,7 @@ static void Main(string[] args)
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img10.png)
 ### => Flag: `corctf{4l1c3_15_1n_d33p_tr0ubl3_b3c4us3_1_d1d_n0t_s4v3_h3r!!:c}`
 
-## zoom_zoom_vision
+# zoom_zoom_vision
 Tóm tắt chương trình: chương trình sẽ cho ta nhập một chuỗi (input) và biến đổi từng kí tự sang số sau đó in ra màn hình và so sánh với chuỗi số có trong chương trình.
 Lợi dụng điều đó tôi giải quyết chall này một cách lươn lẹo, nhập "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#@$%&*()^-|'?/\\[]<>.,_{}+=\`~" để lấy được kết quả, sử dụng kết quả đó và chuỗi số trong chương trình để tìm ra flag.
 
