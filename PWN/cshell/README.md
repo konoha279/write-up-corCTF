@@ -327,7 +327,7 @@ int main(){
 
     - Mục tiêu của ta sẽ login với root để có uid là 0 và thực hiện system("cat flag.txt")
     - Mình không biết được password của root để login nhưng để ý rằng ta có thể overwrite password của root nếu ta malloc size = 128(0x80), vì trong hàm history có free 2 chunk, nên giờ nó sẽ sử dụng lại vùng nhớ đó để malloc, và vùng nhớ này đứng trên vùng nhớ chứa username và password nên ta có thể overwrite.
-    - Nhưng ta overwrite password của root thành gì khi nó so sánh hash(password,"1337") với cái ta overwrite. Ta thấy hàm crypt() dùng 1 key cố định là "1337" nên với đầu vào giống nhau thì đầu ra sẽ luôn giống nhau. Ví dụ đầu vào mình là "a"*8 thì đầu ra sẽ luôn là "13OTCcGbCo.BQ" vậy ta chỉ cần overwrite password của root thành 0x00746f6f72000000(root) 0x43544f3331000000(13OTC) 0x51422e6f43624763(cGbCo.BQ) ở dạng little endian. Như vậy khi ta login với username là root và password là "a"*8 ⇒ thành công và có uid là 0 có thể thực hiện bash.
+    - Nhưng ta overwrite password của root thành gì khi nó so sánh hash(password,"1337") với cái ta overwrite. Ta thấy hàm crypt() dùng 1 key cố định là "1337" nên với đầu vào giống nhau thì đầu ra sẽ luôn giống nhau. Ví dụ đầu vào mình là "a"*8 thì đầu ra sẽ luôn là "13OTCcGbCo.BQ" vậy ta chỉ cần overwrite username, password của root thành 0x00746f6f72000000(root) 0x43544f3331000000(13OTC) 0x51422e6f43624763(cGbCo.BQ) ở dạng little endian. Như vậy khi ta login với username là root và password là "a"*8 ⇒ thành công và có uid là 0 có thể thực hiện bash.
 
 ```c
 [+] Opening connection to pwn.be.ax on port 5001: Done
