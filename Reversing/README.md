@@ -286,3 +286,38 @@ static void Main(string[] args)
 => Đáp án: `Sleeperio Sleeperio Disappeario Instanterio!`
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img10.png)
 ### => Flag: `corctf{4l1c3_15_1n_d33p_tr0ubl3_b3c4us3_1_d1d_n0t_s4v3_h3r!!:c}`
+
+## zoom_zoom_vision
+Tóm tắt chương trình: chương trình sẽ cho ta nhập một chuỗi (input) và biến đổi từng kí tự sang số sau đó in ra màn hình và so sánh với chuỗi số có trong chương trình.
+Lợi dụng điều đó tôi giải quyết chall này một cách lươn lẹo, nhập "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#@$%&*()^-|'?/\\[]<>.,_{}+=`~" để lấy được kết quả, sử dụng kết quả đó và chuỗi số trong chương trình để tìm ra flag.
+![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img11.png)
+
+Code tìm flag:
+```c
+#include <iostream>
+#include <string.h>
+int num[100] = {1552, 1568, 1584, 1600, 1616, 1632, 1648, 1664, 1680, 
+				1696, 1712, 1728, 1744, 1760, 1776, 1792, 1808, 1824, 
+				1840, 1856, 1872, 1888, 1904, 1920, 1936, 1952, 1040, 
+				1056, 1072, 1088, 1104, 1120, 1136, 1152, 1168, 1184, 
+				1200, 1216, 1232, 1248, 1264, 1280, 1296, 1312, 1328, 
+				1344, 1360, 1376, 1392, 1408, 1424, 1440, 768, 784, 
+				800, 816, 832, 848, 864, 880, 896, 912, 528, 560, 
+				1024, 576, 592, 608, 672, 640, 656, 1504, 720, 
+				1984, 624, 1008, 752, 1472, 1456, 1488, 960, 
+				992, 736, 704, 1520, 1968, 2000, 688, 976, 1536, 2016};
+char text[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#@$%&*()^-|'?/\\[]<>.,_{}+=`~";
+int main ()
+{
+	int num2[50] = {1584, 1776, 1824, 1584, 1856, 1632, 1968, 1664, 768, 1728, 
+				784, 784, 784, 784, 784, 1520, 1840, 1664, 784, 784, 784, 
+				784, 784, 784, 816, 816, 816, 816, 816, 816, 1856, 1856, 
+				1856, 1856, 1856, 1520, 784, 1856, 1952, 1520, 1584, 688, 688, 528, 2000};
+	char tmp[2017] = {0};
+	for (int j=0; j < strlen(text); j++) tmp[num[j]] = text[j];
+	for (int i=0;i < 45; i++) printf("%c", tmp[num2[i]]);
+	return 0;		
+}
+```
+
+## => FLAG: `corctf{h0l11111_sh111111333333ttttt_1tz_c++!}`
