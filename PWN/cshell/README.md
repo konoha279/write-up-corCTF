@@ -3,6 +3,7 @@
 - File 64 bit, static và không stripped nên dễ cho việc debug hơn.
 
 ```c
+dinhvu@LAPTOP-63U3K24D:/mnt/c/Users/ADMIN/Desktop/corCTF/Cshell$ file Cshell
 Cshell: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=fa44f005a56ad5119764902311a39bbf09cbca23, for GNU/Linux 3.2.0, not stripped
 ```
 
@@ -363,6 +364,7 @@ int main(){
     - Nhưng ta overwrite password của root thành gì khi nó so sánh hash(password,"1337") với cái ta overwrite. Ta thấy hàm crypt() dùng 1 key cố định là "1337" nên với đầu vào giống nhau thì đầu ra sẽ luôn giống nhau. Ví dụ đầu vào mình là "a"*8 thì đầu ra sẽ luôn là "13OTCcGbCo.BQ" vậy ta chỉ cần overwrite username, password của root thành 0x00746f6f72000000(root) 0x43544f3331000000(13OTC) 0x51422e6f43624763(cGbCo.BQ) ở dạng little endian. Như vậy khi ta login với username là root và password là "a"*8 ⇒ thành công và có uid là 0 có thể thực hiện bash.
 
 ```c
+dinhvu@LAPTOP-63U3K24D:/mnt/c/Users/ADMIN/Desktop/corCTF/Cshell$ python2 solve.py
 [+] Opening connection to pwn.be.ax on port 5001: Done
 [*] Switching to interactive mode
        /\
