@@ -246,7 +246,7 @@ Khi chúng ta chọn theo Alice, chương trình sẽ load một số đoạn co
 và sử dụng vào quest cuối cùng (dòng 28, sẽ gọi một hàm `Encode` của class `Dream` nằm trong `AliceInCeptiondream`).
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img7.png)
 
-Tiến hành debug và đặt breakpoint tại nơi nó đã load được từ resouces (cụ thể là hàn `button1_click`) và có thể thấy được `AliceInCeptiondream`
+Tiến hành debug và đặt breakpoint tại nơi nó đã load được từ resouces (cụ thể là hàm `button1_click`) và có thể thấy được `AliceInCeptiondream`
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img8.png)
 
 Xem chi tiết `AliceInCeptiondream`:
