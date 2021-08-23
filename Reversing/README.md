@@ -166,6 +166,7 @@ int main()
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img3.png)
 
 Tiếp tục quest tiếp theo (quest con sâu):
+
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img4.png)
 
 Code của quest con sâu:
