@@ -1,1 +1,1 @@
-# write-up-corCTF
+# PWN
