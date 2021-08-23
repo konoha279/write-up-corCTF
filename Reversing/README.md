@@ -255,216 +255,32 @@ Xem chi tiết `AliceInCeptiondream`:
 Sau một hồi phân tích hàm encode, tôi cảm thấy mất thời gian nên sẽ tiến hành sử dụng hàm encode để brute force lấy đáp án.
 Code brute force:
 ```c#
-class Program
-    {
-		static Program()
-		{
-			string[] array = new string[256];
-			array[4] = "\u000f";
-			array[5] = "\u0005\u0006\u0005\u0005\u0006";
-			array[6] = "\u001d\u001d\u001d\u001d\u001d";
-			array[7] = "\u0015\u0015\u0015\u0016\u0016";
-			array[8] = "nmmnmn";
-			array[9] = "ffff";
-			array[10] = "~}}~";
-			array[11] = "uvvu";
-			array[12] = "\0";
-			array[13] = "FFFF";
-			array[14] = "^]]^";
-			array[15] = "UVVU";
-			array[36] = "\f\u000f\f\u000f\f\f";
-			array[37] = "\u0004\a\u0004\u0004\a\u0004";
-			array[38] = "\u001f\u001c\u001c\u001c\u001c";
-			array[39] = "\u0014\u0014\u0014\u0014\u0017";
-			array[40] = "ol";
-			array[41] = "gg";
-			array[42] = "||\u007f|";
-			array[43] = "twtt";
-			array[44] = "OL";
-			array[45] = "GG";
-			array[46] = "\\\\_\\";
-			array[47] = "TWTT";
-			array[68] = "\0";
-			array[69] = "\0";
-			array[70] = "\u001c\u001c\u001f\u001f\u001f";
-			array[71] = "\u0017\u0017\u0017\u0014\u0014\u0014";
-			array[72] = "olll";
-			array[73] = "dggg";
-			array[74] = "|\u007f|";
-			array[75] = "wwtt";
-			array[76] = "OLLL";
-			array[77] = "DGGG";
-			array[78] = "\\_\\";
-			array[79] = "WWTT";
-			array[100] = "\0";
-			array[101] = "\u0005\u0006\u0005\u0006\u0005";
-			array[102] = "\u001d\u001d\u001d\u001e\u001e";
-			array[103] = "\u0016\u0015\u0016\u0015\u0016\u0015";
-			array[104] = "nmnm";
-			array[105] = "fef";
-			array[106] = "}}}";
-			array[107] = "\0";
-			array[108] = "NMNM";
-			array[109] = "FEF";
-			array[110] = "]]]";
-			array[111] = "\0";
-			array[132] = "\n\n\n\n\n";
-			array[133] = "\u0001\u0001\u0002\u0002\u0001\u0001";
-			array[134] = "\u001a\u001a\u001a\u001a\u0019";
-			array[135] = "\0";
-			array[136] = "ijj";
-			array[137] = "babb";
-			array[138] = "y";
-			array[139] = "\0";
-			array[140] = "IJJ";
-			array[141] = "BABB";
-			array[142] = "Y";
-			array[143] = "\0";
-			array[164] = "\0";
-			array[165] = "\0\u0003\u0003\u0003\u0003\0";
-			array[166] = "\u001b\u001b\u001b\u001b\u001b";
-			array[167] = "\u0010\u0013\u0013\u0013\u0010";
-			array[168] = "k";
-			array[169] = "``";
-			array[170] = "{{x";
-			array[171] = "\0";
-			array[172] = "K";
-			array[173] = "@@";
-			array[174] = "[[X";
-			array[175] = "\0";
-			array[196] = "\b\v\b\b\b";
-			array[197] = "\0\u0003\0\u0003\0\u0003";
-			array[198] = "\u001b\u0018\u0018\u0018\u0018";
-			array[199] = "\0";
-			array[200] = "hhkh";
-			array[201] = "c`";
-			array[202] = "xxx{";
-			array[203] = "\0";
-			array[204] = "HHKH";
-			array[205] = "C@";
-			array[206] = "XXX[";
-			array[207] = "\0";
-			array[228] = "\t\n\n\n\n\t";
-			array[229] = "\u0002\u0001\u0001\u0002\u0001";
-			array[230] = "\u001a\u001a\u0019\u0019\u0019";
-			array[231] = "\u0011\u0011\u0012\u0012\u0011\u0011";
-			array[232] = "jji";
-			array[233] = "bbb";
-			array[234] = "yzz";
-			array[235] = "qqrrqr";
-			array[236] = "JJI";
-			array[237] = "BBB";
-			array[238] = "YZZ";
-			rm = array;
-			xm = 1056017893861212352UL;
-		}
-		private static readonly string[] rm;
-		private static readonly ulong xm;
-		
-		static void Main(string[] args)
-		{
-			String s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789! ";
-			String cipher = "3c3cf1df89fe832aefcc22fc82017cd57bef01df54235e21414122d78a9d88cfef3cf10c829ee32ae4ef01dfa1951cd51b7b22fc82433ef7ef418cdf8a9d802101ef64f9a495268fef18d52882324f217b1bd64b82017cd57bef01df255288f7593922712c958029e7efccdf081f8808a6efd5287595f821482822f6cb95f821cceff4695495268fefe72ad7821a67ae0060ad";
+static void Main(string[] args)
+{
+	String s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789! ";
+	String cipher = "3c3cf1df89fe832aefcc22fc82017cd57bef01df54235e21414122d78a9d88cfef3cf10c829ee32ae4ef01dfa1951cd51b7b22fc82433ef7ef418cdf8a9d802101ef64f9a495268fef18d52882324f217b1bd64b82017cd57bef01df255288f7593922712c958029e7efccdf081f8808a6efd5287595f821482822f6cb95f821cceff4695495268fefe72ad7821a67ae0060ad";
 
-			char[] ascii = s.ToCharArray();
-			String text = "";
-			bool cont = true;
-            while (cont)
-            {
-                for (int i = 0; i < ascii.Length; i++)
-                {
-					String tmp = text;
-					tmp += ascii[i].ToString();
-					String enc = Encode(tmp);
-					String subStr = cipher.Substring(0, enc.Length);
-                    if (enc.Equals(subStr))
-                    {
-						text = tmp;
-						if (enc.Length == cipher.Length) cont = false;
-						break;
-                    }
-
-                }
-            }
-			Console.WriteLine(text);
-		}
-
-		[DllImport("kernel32.dll", ExactSpelling = true, SetLastError = true)]
-		private static extern bool CheckRemoteDebuggerPresent(IntPtr hProcess, ref bool isDebuggerPresent);
-		
-		public static string Encode(string plaintext)
+	char[] ascii = s.ToCharArray();
+	String text = "";
+	bool cont = true;
+	while (cont)
+	{
+		for (int i = 0; i < ascii.Length; i++)
 		{
-			string text = string.Empty;
-			if (!string.IsNullOrEmpty(plaintext))
+			String tmp = text;
+			tmp += ascii[i].ToString();
+			String enc = Encode(tmp);
+			String subStr = cipher.Substring(0, enc.Length);
+			if (enc.Equals(subStr))
 			{
-				string text2 = string.Join("/", plaintext.Select(new Func<char, string>(dF)).ToArray<string>());
-				byte[] array = new byte[]
-				{
-					(byte)(xm & 255UL),
-					(byte)(xm >> 8 & 255UL),
-					(byte)(xm >> 16 & 255UL),
-					(byte)(xm >> 24 & 255UL),
-					(byte)(xm >> 32 & 255UL),
-					(byte)(xm >> 40 & 255UL),
-					(byte)(xm >> 48 & 255UL),
-					(byte)(xm >> 56 & 255UL)
-				};		
-				for (int i = 0; i < text2.Length; i++)
-				{
-					text += string.Format("{0:x2}", (byte)text2[i] ^ array[i % array.Length]);
-				}
-				
+				text = tmp;
+				if (enc.Length == cipher.Length) cont = false;
+				break;
 			}
-			bool flag = false;
-			if (!CheckRemoteDebuggerPresent(Process.GetCurrentProcess().Handle, ref flag) && flag)
-			{
-				text = string.Join<char>("", text.Reverse<char>().ToArray<char>());
-			}
-			return text;
-		}
-		private static byte ror(byte v, byte s)
-        {
-            byte b = (byte)(s % 8);
-            return (byte)((int)v << (int)b | v >> (int)(8 - b));
-        }
-        private static byte rol(byte v, byte s)
-        {
-            byte b = (byte)(s % 8);
-            return (byte)(v >> (int)b | (int)v << (int)(8 - b));
-        }
-		
 
-		[CompilerGenerated]
-		internal static char a(char c)
-		{
-			int n = rol((byte)c, 3);
-			return (char) n;
 		}
-
-		[CompilerGenerated]
-		internal static char b(char c)
-		{
-			int n = ror((byte)c, 5);
-			return (char) n;
-		}
-		[CompilerGenerated]
-		internal static string cF(char c, string x)
-		{
-			String s = new string((from y in x
-								   select (char)((byte)y ^ (byte)c)).ToArray<char>());
-			return s;
-		}
-		[CompilerGenerated]
-		internal static string dF(char c)
-		{
-			int n = (int)a(c);
-			String tmp = rm[n];
-			String s = string.Join("", new string[]
-			{
-				cF(c, new string (tmp.Select(new Func<char, char>(b)).ToArray<char>()))
-			});
-			return s;
-		}
+	}
+	Console.WriteLine(text);
 }
 ```
 => Đáp án: `Sleeperio Sleeperio Disappeario Instanterio!`
