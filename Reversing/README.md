@@ -289,7 +289,8 @@ static void Main(string[] args)
 
 ## zoom_zoom_vision
 Tóm tắt chương trình: chương trình sẽ cho ta nhập một chuỗi (input) và biến đổi từng kí tự sang số sau đó in ra màn hình và so sánh với chuỗi số có trong chương trình.
-Lợi dụng điều đó tôi giải quyết chall này một cách lươn lẹo, nhập "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#@$%&*()^-|'?/\\[]<>.,_{}+=`~" để lấy được kết quả, sử dụng kết quả đó và chuỗi số trong chương trình để tìm ra flag.
+Lợi dụng điều đó tôi giải quyết chall này một cách lươn lẹo, nhập "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#@$%&*()^-|'?/\\[]<>.,_{}+=\`~" để lấy được kết quả, sử dụng kết quả đó và chuỗi số trong chương trình để tìm ra flag.
+
 ![alt text](https://github.com/konoha279/write-up-corCTF/blob/rev/Reversing/Resources/img11.png)
 
 Code tìm flag:
