@@ -112,4 +112,4 @@ int main()
 }
 ```
 => see?_rEv_aint_so_bad
-=> Flag: `corctf{see?_rEv_aint_so_bad}`
+### => Flag: `corctf{see?_rEv_aint_so_bad}`
